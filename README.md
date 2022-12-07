@@ -1,4 +1,4 @@
-## Semanux Demo Concept
+## Semanux Demo
 
 ### How to run locally
 

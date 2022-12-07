@@ -38,6 +38,6 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SERVER_KEY }}
           source: "dist"
-          target: "/gkv-impulse.semanux.com/"
+          target: "/demo.semanux.com/"
           strip_components: 1 # ignore the "dist" super directory when copying
           rm: true # remove the target directory before copying

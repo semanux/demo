@@ -209,14 +209,14 @@ onMounted(() => {
       :height="CANVAS_HEIGHT"
     />
   </div>
- 
+
 </template>
 
 <style module>
 
 .face {
   border-radius: var(--high-roundness);
-  background: linear-gradient(#a61f7d, #edd2e5);
+  background: linear-gradient(#1f79a6, #d2ebed);
   box-shadow: 0 0 2rem var(--color-transparent-contrast-25);
   border: 0.125rem solid var(--color-lowest-contrast);
   box-sizing: padding-box;

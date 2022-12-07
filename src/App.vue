@@ -6,7 +6,6 @@ import { pi, round } from "mathjs";
 import Face from "./Face.vue";
 import Foot from "./Foot.vue";
 import Device from "./Device.vue";
-import GithubCorners from "@uivjs/vue-github-corners";
 
 const faceRef = ref<InstanceType<typeof Face>>();
 
@@ -18,12 +17,11 @@ onMounted(() => {
 
 <template>
   <div :class="$style.app">
-    <div :class="$style.award">🎉 <a href="https://semanux.com/blog/first-place-gkv-impulse-challenge">We won the first place</a> in the communication challenge of the GKV im:pulse Accelerator! 🥇</div>
-    <h1 style="grid-area: head">Semanux @ GKV im:pulse</h1>
-    <div :class="$style.subhead">Controlling your health insurance's app with you head alone? 🤔</div>
+    <h1 style="grid-area: head">Semanux Demo</h1>
+    <div :class="$style.subhead">Innovative controls via webcam head-tracking</div>
     <div :class="$style.notes">
-      <p>This demo is <b>Semanux' contribution</b> to the <b>GKV im:pulse accelerator 2022!</b> 🚀 We are proud to present you our vision 🔮 of how we will enable you to take control over your health insurance app using your head alone - ✋ <i>touchless</i>, 😶 <i>speechless</i>, 🐥 <i>effortless</i>.</p>
-      <span>Allow you to use the app even in situations like:</span>
+      <p>We are proud to present you our vision 🔮 of how you could take control over any application using your head alone - ✋ <i>touchless</i>, 😶 <i>speechless</i>, 🐥 <i>effortless</i>.</p>
+      <span>Allow you to use applications even in situations like:</span>
       <ul>
         <li>Broke your hand? ✊</li>
         <li>Busy hands while cooking? 👩‍🍳</li>
@@ -31,7 +29,7 @@ onMounted(() => {
         <li>Clean environment like surgery? 👨‍⚕️</li>
         <li>Motor impairment in your upper limbs? 🦾</li>
       </ul>
-      <p>We are still working to bring our technology into any app. Thus, here you can experience our vision <b>by dragging or touching the smiley face</b> next to this description!</p>
+      <p>We are still working to bring our technology into any application. Thus, here you can experience our vision <b>by dragging or touching the smiley face</b> next to this description!</p>
       <p>Drag it with the left mouse button or touch it with one finger to rotate it for scrolling. <span :class="$style.spinner">🙃</span> Drag it with the right mouse button or touch it with two fingers to let it open its mouth for a selection. 😮</p>
     </div>
     <div :class="$style.contents">
@@ -50,7 +48,6 @@ onMounted(() => {
     </div>
     <foot :class="$style.foot"/>
   </div>
-  <github-corners fixed target="__blank" href="https://github.com/semanux/gkv-impulse" />
 </template>
 
 <style>
@@ -62,9 +59,9 @@ body {
   background: linear-gradient(
     20deg,
     var(--color-fill-primary),
-    #2a2810,
-    #3e0e30,
-    #11352c);
+    #4a2424,
+    #205b4a,
+    #0c3027);
   background-attachment: fixed;
   overflow-x: hidden;
 }
@@ -107,25 +104,6 @@ a {
   margin-top: -1rem;
   margin-bottom: 1.5rem;
   color: var(--color-font-secondary);
-}
-
-.award {
-  grid-area: award;
-  display: block;
-  text-align: center;
-  color: white;
-  background: linear-gradient(to right, #EA2DCB, 25%, #F47495);
-  padding: 0.25rem 0 0.25rem 0;
-  text-shadow: 0 0 1rem rgba(0,0,0,0.5);
-  overflow: hidden;
-  margin: 0.5rem;
-  max-width: 500px;
-  padding: 1rem;
-  border-radius: 2rem;
-}
-
-.award a {
-  color: white;
 }
 
 .notes {

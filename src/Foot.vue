@@ -26,9 +26,14 @@ const url = computed(() => window.location.href);
           <img src="/semanux.png" />
         </a>
       </div>
-      <div :class="[$style.cell, $style.gkvImpulse]">
-        <a href="https://www.gkv-impulse.de">
-          <img src="/gkv-impulse.svg" />
+      <div :class="[$style.cell, $style.analyticComputing]">
+        <a href="https://www.ipvs.uni-stuttgart.de/departments/ac">
+          <img src="/anal-comp.svg" />
+        </a>
+      </div>
+      <div :class="[$style.cell, $style.university]">
+        <a href="https://www.uni-stuttgart.de">
+          <img src="/uni-stuttgart.svg" />
         </a>
       </div>
     </div>
@@ -44,9 +49,9 @@ const url = computed(() => window.location.href);
   display: grid;
   width: 100%;
   max-width: 850px;
-  grid-template-columns: 1fr 1fr 1.25fr;
+  grid-template-columns: 0.5fr 1fr 1fr 1fr;
   grid-template-rows: auto;
-  align-items: end;
+  align-items: center;
   justify-items: center;
   row-gap: 2rem;
 }
@@ -76,20 +81,13 @@ const url = computed(() => window.location.href);
   margin-top: -0.25rem;
 }
 
-.gkvImpulse, .semanux {
+.university, .analyticComputing, .semanux {
+  width: 100%;
   transition: transform 1s ease;
 }
 
-.gkvImpulse {
-  transform: translate(0, 2rem);
-}
-
-.gkvImpulse:hover {
-  transform: translate(0, 2rem) scale(1.1);
-}
-
-.semanux:hover {
-  transform:  scale(1.1);
+.university:hover, .analyticComputing:hover, .semanux:hover {
+  transform: scale(1.1);
 }
 
 @media (max-width: 500px) {
