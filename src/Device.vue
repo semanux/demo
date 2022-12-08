@@ -252,7 +252,7 @@ const opacity = computed(() => `${props.selecting ? 1.0 : 0.0}`);
   height: 100%;
   justify-items: center;
   align-items: center;
-  /* background: var(--color-transparent-contrast-50); */
+  background: var(--color-transparent-contrast-50);
   opacity: v-bind(excuseOpacity);
   backdrop-filter: blur(calc(v-bind(excuseOpacity) * 10px));
   transition:
