@@ -20,6 +20,7 @@ const screens: Record<string, Screen> = {
     height: 5100,
     links: [
       { x: 604, y: 0, width: 266, height: 140, link: "menu", },
+      { x: 0, y: 0, width: 600, height: 280, link: "home", },
       { x: 180, y: 136, width: 230, height: 110, link: "ukraine", },
       { x: 395, y: 136, width: 210, height: 110, link: "coronavirus", },
       { x: 605, y: 136, width: 266, height: 110, link: "germany", },
