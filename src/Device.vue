@@ -14,6 +14,7 @@ const SCROLL_SPEED_MODIFIER = 0.25;
 const CURSOR_SPEED_MODIFIER = 0.1;
 const DISPLAY_ASPECT_RATIO = 9/16;
 const CURSOR_ANIMATE_MS = 400;
+const EXCUSE_ANIMATE_MS = 500;
 
 // Properties.
 interface Props {
@@ -65,16 +66,19 @@ const doIntersect = (displayX: number, displayY: number): string => {
 }
 
 // Feedback of cursor after intersect.
-const scale = ref(1);
+const cursorScale = ref(1);
 let timeout: number;
-watch(scale, (to: number) => {
+watch(cursorScale, (to: number) => {
   if(to !== 1) {
     if(timeout !== undefined) { clearTimeout(timeout); }
     timeout = setTimeout(() => {
-      scale.value = 1;
+      cursorScale.value = 1;
     }, CURSOR_ANIMATE_MS);
   }
 }); // Reset scale to 1 after timeout
+
+// Excuse.
+const excuseOpacity = ref(0);
 
 // Observe size of the display.
 let resizeObserver: ResizeObserver;
@@ -136,9 +140,13 @@ watch(() => props.selecting, to => {
       console.log(intersectLink);
       aggScroll.value = 0;
       screen.value = screens[intersectLink];
-      scale.value = 0.5;
+      cursorScale.value = 0.5;
     } else {
-      scale.value = 4;
+      cursorScale.value = 4;
+      excuseOpacity.value = 1;
+      setTimeout(() => {
+        excuseOpacity.value = 0;
+      }, 1500)
     }
   }
 });
@@ -161,6 +169,9 @@ const opacity = computed(() => `${props.selecting ? 1.0 : 0.0}`);
       <div>
         <div/>
       </div>
+    </div>
+    <div :class="$style.excuse">
+      <span>Not available in demo.</span>
     </div>
   </div>
 </div>
@@ -215,7 +226,7 @@ const opacity = computed(() => `${props.selecting ? 1.0 : 0.0}`);
   width: 100%;
   height: 100%;
   position: absolute;
-  transform: scale(v-bind(scale));
+  transform: scale(v-bind(cursorScale));
   background: rgba(31, 121, 166, 0.5);
   border-radius: 100%;
   transition: transform v-bind(CURSOR_ANIMATE_MS + 'ms') ease;
@@ -232,6 +243,29 @@ const opacity = computed(() => `${props.selecting ? 1.0 : 0.0}`);
   border-radius: 100%;
   transform: translate(-50%, -50%);
   box-shadow: 0 0 5px var(--color-black-50);
+}
+
+.excuse {
+  display: grid;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  justify-items: center;
+  align-items: center;
+  /* background: var(--color-transparent-contrast-50); */
+  opacity: v-bind(excuseOpacity);
+  backdrop-filter: blur(calc(v-bind(excuseOpacity) * 10px));
+  transition:
+    opacity v-bind(EXCUSE_ANIMATE_MS + 'ms') ease,
+    backdrop-filter v-bind(EXCUSE_ANIMATE_MS + 'ms') ease;
+}
+
+.excuse > span {
+  color: var(--color-lower-contrast);
+  background: var(--color-higher-contrast);
+  padding: 0.75rem;
+  border-radius: 10rem;
+  box-shadow: 0 0 2rem var(--color-black-50);
 }
 
 </style>
