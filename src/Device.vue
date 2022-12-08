@@ -28,7 +28,7 @@ const props = withDefaults(defineProps<Props>(), {
 });
 
 // Set active screen.
-const screen = ref(screens["home-no-search-inbox"]);
+const screen = ref(screens["home"]);
 const displayStyle = computed(() => {
   return {
     backgroundImage: `url(${screen.value.src})`,
@@ -216,7 +216,7 @@ const opacity = computed(() => `${props.selecting ? 1.0 : 0.0}`);
   height: 100%;
   position: absolute;
   transform: scale(v-bind(scale));
-  background: rgb(166, 31, 125, 0.25);
+  background: rgba(31, 121, 166, 0.5);
   border-radius: 100%;
   transition: transform v-bind(CURSOR_ANIMATE_MS + 'ms') ease;
 }

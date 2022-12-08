@@ -1,0 +1,1 @@
+Screenshots taken on https://www.tagesschau.de on 8th December 2022.
